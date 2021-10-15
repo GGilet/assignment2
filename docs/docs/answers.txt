@@ -1,0 +1,103 @@
+10/13/2021: Went through GitLab Tutorials
+
+
+********Question 1: Paste the console output you saved at the end of step 3.C (2 points)
+
+17:34:00.597: [CEN 4020] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false fetch origin --recurse-submodules=no --progress --prune
+17:36:46.085: [CEN 4020] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -- docs/docs/status.txt
+17:37:10.653: [CEN 4020] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -- docs/docs/answers.txt
+17:38:03.295: [CEN 4020] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- docs/docs/answers.txt docs/docs/status.txt
+17:38:03.343: [CEN 4020] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\GANAEL~1\AppData\Local\Temp\git-commit-msg-.txt --
+[master e65bc29] created answers.txt file
+ 2 files changed, 3 insertions(+)
+ create mode 100644 docs/docs/answers.txt
+ create mode 100644 docs/docs/status.txt
+17:38:05.337: [CEN 4020] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/master:master
+Enumerating objects: 7, done.
+Counting objects:  14% (1/7)
+Counting objects:  28% (2/7)
+Counting objects:  42% (3/7)
+Counting objects:  57% (4/7)
+Counting objects:  71% (5/7)
+Counting objects:  85% (6/7)
+Counting objects: 100% (7/7)
+Counting objects: 100% (7/7), done.
+Delta compression using up to 16 threads
+Compressing objects:  25% (1/4)
+Compressing objects:  50% (2/4)
+Compressing objects:  75% (3/4)
+Compressing objects: 100% (4/4)
+Compressing objects: 100% (4/4), done.
+Writing objects:  16% (1/6)
+Writing objects:  33% (2/6)
+Writing objects:  50% (3/6)
+Writing objects:  66% (4/6)
+Writing objects:  83% (5/6)
+Writing objects: 100% (6/6)
+Writing objects: 100% (6/6), 519 bytes | 519.00 KiB/s, done.
+Total 6 (delta 1), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/1)
+remote: Resolving deltas: 100% (1/1)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/GGilet/assignment2.git
+ 	refs/heads/master:refs/heads/master	1034290..e65bc29
+Done
+
+********Question 2: How many commits have been done to the repository (not only by you, but by anyone) so far? Write the git command you used to get this information (4 points)
+I used "git rev-list --all" and got 9 commits
+
+e65bc29b4d237423c0fe42b8d996fad5340e31a8
+1034290a86b595a1ecd3ab96a7253b3cdafaea75
+7cfd585cfe11d85c719c52d165e3fb32a5159073
+f4975e5d56ff331762b318bfd12c5236e0299f25
+e424a923e80da4772ca789591ef3326230062a71
+03106e92a1e36708334c69dd071088c6d0937b1d
+f9cd890b3f89fbe5920a1fdf7da34ee915ba27b9
+f9c24b027e6275ff6a1911241014c44971b4e8d0
+4f6c88c953f4601929df7980a19dcdaee4f13854
+
+********Question 3: When was the README.md  file modified last? Write the git command you used to get this information (4 points)
+Command: git log README.md
+Results:
+
+commit 7cfd585cfe11d85c719c52d165e3fb32a5159073
+Author: Ganaelle Gilet <gg14j@my.fsu.edu>
+Date:   Fri Oct 15 17:31:43 2021 -0400
+
+    Updated information files
+    Added user name and FSU id
+
+commit f4975e5d56ff331762b318bfd12c5236e0299f25
+Author: Esteban Parra <estebanpr014@gmail.com>
+Date:   Wed Sep 25 18:33:08 2019 -0400
+
+    -> Adding an empty README.md file
+
+********Question 4: Mention two reasons why branches are used in a Git repository (4 points)
+Branches create an additional line of development where developers could work simultaneously.
+Branches also act as different isolated versions of the master branch meaning you could show a client the product at different stages of production.
+
+********Question 5: What is the difference between git log and git status? (4 points)
+Git log lists the history of a file beyond renames.
+Git status shows the working tree status.
+
+********Question 6: What command would you use to see the commits where “Vehicle.h” was one of the committed files?
+git log
+
+********Question 7: What command would you use to see the commits whose commit message contains the word “file”? (4 points)
+git log --grep"file"
+
+********Question 8: In the context of object-oriented programming (I) What is inheritance? (II) What is polymorphism? (III) What is encapsulation? (6 points)
+
+Inheritance: When a class inherits some or all of the features from an already existing parent class.
+
+Polymorphism: The class can be defined in multiple forms. Allows the object to decide which form to implement and run.
+
+Encapsulation: The data is bound to the code that changes it and it also keeps the data/code safe from external interactions.
+
+********Question 9: What is the main difference between the “Dictator and Lieutenants” workflow and the “Integration manager” workflow? (5 points)
+
+In the Integration manager workflow, the developers can work on their own portions and can make pull/pushes to their own public repository and conflicts are resolved by the integration manager whereas in the Dictator and Lieutenants workflow everyone can make pulls from the repository but only the dictator can push to it.
+
+********Question 10: How would a team of 100 developers benefit from following the “Dictator and Lieutenants” workflow instead of the “Centralized” workflow? (5 points)
+With the Centralized workflow a team of 100 developers would slow things down drastically because before the second developer pushes their changes they have to include the changes from the first developer to not override it. A Dictator and Lieutenant workflow has multiple repositories and therefore multiple workflows to work with. Integration managers would manage their specific sections of the repository. The Dictator would then push the master branch to the reference repository that the 100 developers can then pull. Overall, it would make collaborating a much smoother and efficient process.
